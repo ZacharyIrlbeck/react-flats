@@ -1,21 +1,20 @@
 import React from 'react';
 
-const flat = ({ flat }) => {
+const flat = ({ flat, handleFlatSelection }) => {
   const { name, lat, lng, priceCurrency, price, imageUrl } = flat;
   const imageStyle = {
     backgroundImage: `url(${imageUrl})`
   };
 
   return (
-    <div className="card" style={imageStyle}>
+    <div className="card" style={imageStyle} onClick={ (e) => handleFlatSelection(e, lat, lng, name)}>
       <div className="card-category">
         {price}
         {priceCurrency}
       </div>
       <div className="card-description">
-        <h2>{name}</h2>
+        {name}
       </div>
-      <a className="card-link" href="#"></a>
     </div>
   );
 };
